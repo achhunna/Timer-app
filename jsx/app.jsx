@@ -51,20 +51,26 @@ var Timer = React.createClass({
   },
 
   render: function() {
-    if (this.state.time === 0) {
+    const time = this.state.time;
+    if (time === 0) {
       clearInterval(this.state.timer);
     }
+    const timeString = `${time} sec${time !== 1 ? "s" : ""}`;
+    const timeOutput = `${time === 0
+      ? "done!"
+      : timeString}`;
+
     return (
       <div>
         <h1>Timer</h1>
-        <h3>{this.state.time} secs</h3>
+        <h3>{timeOutput}</h3>
         <button onClick={this.beginTimer} disabled={this.state.timerIsRunning && true}>
           {this.state.startToResume ? "Resume" : "Start"}
         </button>
-        <button onClick={this.pauseTimer} disabled={this.state.time === 0 && true}>
+        <button onClick={this.pauseTimer} disabled={time === 0 && true}>
           Pause
         </button>
-        <button onClick={this.resetTimer} disabled={this.state.timerIsRunning && this.state.time !== 0 && true}>
+        <button onClick={this.resetTimer} disabled={this.state.timerIsRunning && time !== 0 && true}>
           Reset
         </button>
         <h3>{this.state.output}</h3>
