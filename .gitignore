@@ -3,6 +3,10 @@ node_modules
 npm-debug.log
 learnyoureact
 
+# Babel transformed JS
+js/client.min.js
+js/client.min.js.map
+
 # Local development
 *.env
 *.dev
