@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const START_TIME = 15;
+const START_TIME = 10;
 
 var Timer = React.createClass({
   getInitialState: function() {
